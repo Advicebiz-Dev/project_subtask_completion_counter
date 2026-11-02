@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_task_form2_inherit_subtask_completion_counter" model="ir.ui.view">
+        <field name="name">project.task.form.inherit.subtask.completion.counter</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sub_tasks_page']/field[@name='child_ids']" position="before">
+                <div class="o_subtask_progress_widget mb-3" invisible="subtask_count == 0">
+                    <field
+                        name="completed_subtask_display"
+                        nolabel="1"
+                        readonly="1"
+                        class="o_subtask_progress_text"
+                    />
+                </div>
+            </xpath>
+
+            <!-- Odoo 19 requires the handle field to be the first ordering
+                 criterion for the six-dot drag-and-drop handle to be usable. -->
+            <xpath expr="//page[@name='sub_tasks_page']/field[@name='child_ids']/list" position="attributes">
+                <attribute name="default_order">sequence asc, id asc</attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='sub_tasks_page']/field[@name='child_ids']/list/field[@name='active']" position="before">
+                <field name="is_subtask_completed" column_invisible="True"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

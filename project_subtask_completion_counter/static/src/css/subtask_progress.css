@@ -1,0 +1,35 @@
+.o_subtask_progress_widget {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 12px;
+}
+
+.o_subtask_progress_text {
+    display: inline-flex !important;
+    align-items: center;
+    width: auto !important;
+    min-height: 34px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #3346c8;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.o_subtask_progress_text .o_input,
+.o_subtask_progress_text input {
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: inherit !important;
+    font: inherit !important;
+    line-height: 20px !important;
+    box-shadow: none !important;
+}
